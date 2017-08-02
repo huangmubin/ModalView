@@ -28,6 +28,7 @@ class ModalView_TableView: ModalView, UITableViewDataSource, UITableViewDelegate
     }()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("numberOfRowsInSection = \(datas.count)")
         return datas.count
     }
     
@@ -71,6 +72,10 @@ class ModalView_TableView: ModalView, UITableViewDataSource, UITableViewDelegate
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
+    }
+    
     // MARK: - Override
     
     override func deploy_at_init() {
@@ -81,6 +86,7 @@ class ModalView_TableView: ModalView, UITableViewDataSource, UITableViewDelegate
     }
     
     override func update_content_view_size(width: CGFloat) -> CGFloat {
+        print("update_content_view_size \(tableView.contentSize.height) \(tableView.bounds.height) \(datas) \(width)")
         tableView.frame = CGRect(
             x: 0,
             y: 0,

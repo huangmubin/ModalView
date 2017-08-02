@@ -29,6 +29,7 @@ extension UIView {
         model.datas = datas
         model.index = index
         model.actions.append(action)
+        model.tableView.reloadData()
         model.display(to: self)
     }
     
